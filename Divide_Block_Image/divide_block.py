@@ -1,5 +1,4 @@
 import cv2
-import numpy as np
 import os
 
 current_dir = os.getcwd()
@@ -19,7 +18,6 @@ for i in range(n):
 	os.chdir(directory)
 	for y in range(vertical_divisor):
 		for x in range(horizontal_divisor):
-			# img_sub = np.zeros([vertical_step,horizontal_step,c])
 			img_sub = img_src[y*vertical_step:(y+1)*vertical_step, x*horizontal_step:(x+1)*horizontal_step,:]
 			print(img_sub.shape)
 			img_sub_name = 'image%d%d.jpg' %(i+1,y*horizontal_divisor+x+1)
