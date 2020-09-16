@@ -16,12 +16,12 @@ for i in range(n):
 	h, w, c = img_src.shape
 	horizontal_step = w//horizontal_divisor
 	vertical_step = h//vertical_divisor
+	os.chdir(directory)
 	for y in range(vertical_divisor):
 		for x in range(horizontal_divisor):
 			# img_sub = np.zeros([vertical_step,horizontal_step,c])
 			img_sub = img_src[y*vertical_step:(y+1)*vertical_step, x*horizontal_step:(x+1)*horizontal_step,:]
 			print(img_sub.shape)
-			os.chdir(directory)
 			img_sub_name = 'image%d%d.jpg' %(i+1,y*horizontal_divisor+x+1)
 			cv2.imwrite(img_sub_name,img_sub)
 			print('successfully saved ',img_sub_name)
